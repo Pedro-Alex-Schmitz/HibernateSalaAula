@@ -5,17 +5,28 @@
 package com.ifc.ibirama.mavenproject1.entidades;
 
 import java.time.LocalDate;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
 
 /**
  *
  * @author aluno
  */
+@Entity
+@Table(name="Bombeiro")
 public class Bombeiro {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "bom_cpf")
     private String cpf;
+    @Column(name = "bom_data_nascimento")
     private LocalDate dataNascimento;
+    @Column(name = "bom_=nome_completo")
     private String nomeCompleto;
+    @Column(name = "bom_nome_guerra")
     private String nomeGuerra;
 
     public Bombeiro() {
@@ -79,6 +90,10 @@ public class Bombeiro {
     }else{
             return false;
     }
+    @Override
+public int hashCode(){
+return getClass().hashCode();
+} 
 }
 
-}
+
