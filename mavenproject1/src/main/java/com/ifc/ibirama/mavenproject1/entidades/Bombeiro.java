@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 /**
  *
@@ -19,14 +21,15 @@ import jakarta.persistence.Column;
 public class Bombeiro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "bom_id")
     private Integer id;
-    @Column(name = "bom_cpf", lenght = 11, unique = true, nullable = false)
+    @Column(name = "bom_cpf", length = 11, unique = true, nullable = false)
     private String cpf;
     @Column(name = "bom_data_nascimento", nullable = false)
     private LocalDate dataNascimento;
-    @Column(name = "bom_=nome_completo", nullable = false, lenght = 45)
+    @Column(name = "bom_=nome_completo", nullable = false, length = 45)
     private String nomeCompleto;
-    @Column(name = "bom_nome_guerra", nullable = false, unique = true, lenght = 45)
+    @Column(name = "bom_nome_guerra", nullable = false, unique = true, length = 45)
     private String nomeGuerra;
 
     public Bombeiro() {
@@ -72,28 +75,25 @@ public class Bombeiro {
         this.nomeGuerra = nomeGuerra;
     }
 
-    @Override
+      @Override
     public boolean equals(Object obj) {
         if (obj instanceof Bombeiro) {
             Bombeiro aux = (Bombeiro) obj;
-
-            if (aux.getId().equals(this.id)) {
-                 && (aux.getCpf().equals(this.cpf))
+            if ((aux.getId().equals(this.id)) && (aux.getCpf().equals(this.cpf))) {
+                return true;
+            } else {
+                return false;
             }
+        } else {
+            return false;
         }
-        {
-            return true;
-        }else {
-            return false;
-            }
-
-    }else{
-            return false;
     }
+    
     @Override
-public int hashCode(){
-return getClass().hashCode();
-} 
+    public int hashCode(){
+        return getClass().hashCode();
+    }
+
 }
 
 
