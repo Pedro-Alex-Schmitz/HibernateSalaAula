@@ -22,7 +22,7 @@ public class GerenciarBombeiro {
         
         Bombeiro bombeiro = new Bombeiro();
         bombeiro.setCpf("12345678");
-        bombeiro.setDataNascimento(LocalDate.of(1990,2,2));
+        bombeiro.setDataNascimento(LocalDate.of(1945,9,2));
         bombeiro.setNomeCompleto("Fulano");
         bombeiro.setNomeGuerra("Fulano");
                 
@@ -38,11 +38,11 @@ public class GerenciarBombeiro {
        }catch(Exception e){
            if (transacao != null) {
                transacao.rollback();
-               
+                
            }
            
        }
         
-        HibernateUtil.shutdown();
+        HibernateUtil.shutdown();   
     }
 }
