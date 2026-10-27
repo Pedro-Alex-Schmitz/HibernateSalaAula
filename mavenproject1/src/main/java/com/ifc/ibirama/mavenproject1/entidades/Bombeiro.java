@@ -38,13 +38,13 @@ public class Bombeiro {
     private String nomeCompleto;
     @Column(name = "bom_nome_guerra", nullable = false, unique = true, length = 45)
     private String nomeGuerra;
-    @OneToOne(mappedBy = "bombeiro")
-    private Usuario usuario;
-    @OneToMany(mappedBy = "bombeiro")
-    private Set<TelefoneContato> telefone = new HashSet<TelefoneContato>();
-     @ManyToMany
-    @JoinTable(name = "Bombeiro_has_Patente", joinColumns = @JoinColumn(name = "bom_id"),inverseJoinColumns = @JoinColumn(name = "pat_id"))
-    private Set<Patente> patente = new HashSet<Patente>();
+//    @OneToOne(mappedBy = "bombeiro")
+//    private Usuario usuario;
+//    @OneToMany(mappedBy = "bombeiro")
+//    private Set<TelefoneContato> telefone = new HashSet<TelefoneContato>();
+//     @ManyToMany
+//    @JoinTable(name = "Bombeiro_has_Patente", joinColumns = @JoinColumn(name = "bom_id"),inverseJoinColumns = @JoinColumn(name = "pat_id"))
+//    private Set<Patente> patente = new HashSet<Patente>();
 
 
             
