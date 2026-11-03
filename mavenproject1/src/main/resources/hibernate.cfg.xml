@@ -7,7 +7,7 @@
     <session-factory>
         <!-- Configurações do Banco de Dados (MySQL) -->
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sistema_bombeiro</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bombeiro</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password"></property>
 
@@ -23,5 +23,9 @@
         
         <mapping class="com.ifc.ibirama.mavenproject1.entidades.Bombeiro" />
         <!--<mapping class="com.ifc.ibirama.mavenproject1.entidades.Viatura" />-->
+        <!--<mapping class="com.ifc.ibirama.mavenproject1.entidades.Patente" />-->
+        <!--<mapping class="com.ifc.ibirama.mavenproject1.entidades.StatusBombeiro" />-->
+        <!--<mapping class="com.ifc.ibirama.mavenproject1.entidades.Especialidade />-->
+        <!--<mapping class="com.ifc.ibirama.mavenproject1.entidades.Usuario" />-->
     </session-factory>
 </hibernate-configuration>  

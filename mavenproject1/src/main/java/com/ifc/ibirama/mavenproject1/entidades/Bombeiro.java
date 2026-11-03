@@ -17,6 +17,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.ManyToMany;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -34,12 +35,12 @@ public class Bombeiro {
     private String cpf;
     @Column(name = "bom_data_nascimento", nullable = false)
     private LocalDate dataNascimento;
-    @Column(name = "bom_=nome_completo", nullable = false, length = 45)
+    @Column(name = "bom_nome_completo", nullable = false, length = 45)
     private String nomeCompleto;
     @Column(name = "bom_nome_guerra", nullable = false, unique = true, length = 45)
     private String nomeGuerra;
-//    @OneToOne(mappedBy = "bombeiro")
-//    private Usuario usuario;
+    @OneToOne(mappedBy = "bombeiro")
+    private Usuario usuario;
 //    @OneToMany(mappedBy = "bombeiro")
 //    private Set<TelefoneContato> telefone = new HashSet<TelefoneContato>();
 //     @ManyToMany
@@ -92,20 +93,34 @@ public class Bombeiro {
         this.nomeGuerra = nomeGuerra;
     }
 
-      @Override
+    @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Bombeiro) {
-            Bombeiro aux = (Bombeiro) obj;
-            if ((aux.getId().equals(this.id)) && (aux.getCpf().equals(this.cpf))) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Bombeiro other = (Bombeiro) obj;
+        if (!Objects.equals(this.cpf, other.cpf)) {
+            return false;
+        }
+        if (!Objects.equals(this.nomeCompleto, other.nomeCompleto)) {
+            return false;
+        }
+        if (!Objects.equals(this.nomeGuerra, other.nomeGuerra)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return Objects.equals(this.dataNascimento, other.dataNascimento);
     }
-    
+
+   
     @Override
     public int hashCode(){
         return getClass().hashCode();

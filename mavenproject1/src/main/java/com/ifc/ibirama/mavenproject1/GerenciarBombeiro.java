@@ -8,6 +8,7 @@ package com.ifc.ibirama.mavenproject1;
 import com.ifc.ibirama.mavenproject1.entidades.Bombeiro;
 import ifc.ibirama.hibernate.util.HibernateUtil;
 import java.time.LocalDate;
+import java.time.Month;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -18,15 +19,16 @@ public class GerenciarBombeiro {
     public static void main(String[] args) {
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         System.out.println("Sessao estabelecida");
-        Transaction transacao = null;
+        
         
         Bombeiro bombeiro = new Bombeiro();
         bombeiro.setCpf("12345678");
         bombeiro.setDataNascimento(LocalDate.of(1945,9,2));
-        bombeiro.setNomeCompleto("Fulano");
-        bombeiro.setNomeGuerra("Fulano");
+        bombeiro.setNomeCompleto("Fulano da Silva");
+        bombeiro.setNomeGuerra("Silva");
+        bombeiro.setDataNascimento(LocalDate.of(2000, Month.NOVEMBER,12));
                 
-                
+        Transaction transacao = null;    
        try{
            transacao = sessao.beginTransaction();
            
