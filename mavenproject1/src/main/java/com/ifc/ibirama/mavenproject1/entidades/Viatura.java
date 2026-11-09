@@ -11,11 +11,13 @@ import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
 /**
  *
  * @author aluno
  */
 @Entity
+@Inheritance
 @Table(name="Viatura")
 public class Viatura {
     @Id

@@ -4,6 +4,7 @@
  */
 package com.ifc.ibirama.mavenproject1.entidades;
 
+import jakarta.persistence.CascadeType;
 import java.time.LocalDate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -41,6 +42,8 @@ public class Bombeiro {
     private String nomeGuerra;
     @OneToOne(mappedBy = "bombeiro")
     private Usuario usuario;
+    
+    (mappedBy = "bombeiro",cascade = CascadeType.ALL)
 //    @OneToMany(mappedBy = "bombeiro")
 //    private Set<TelefoneContato> telefone = new HashSet<TelefoneContato>();
 //     @ManyToMany

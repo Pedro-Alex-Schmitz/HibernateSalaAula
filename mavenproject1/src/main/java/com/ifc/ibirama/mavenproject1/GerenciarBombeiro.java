@@ -4,47 +4,58 @@
  */
 package com.ifc.ibirama.mavenproject1;
 
-
 import com.ifc.ibirama.mavenproject1.entidades.Bombeiro;
+import com.ifc.ibirama.mavenproject1.entidades.Usuario;
+import ifc.ibirama.hibernate.util.HibernateUtil;
 import ifc.ibirama.hibernate.util.HibernateUtil;
 import java.time.LocalDate;
 import java.time.Month;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-
-
-
+/**
+ *
+ * @author aluno
+ */
 public class GerenciarBombeiro {
     public static void main(String[] args) {
         Session sessao = HibernateUtil.getSessionFactory().openSession();
-        System.out.println("Sessao estabelecida");
         
+        System.out.println("Sessão estabelecida");
         
-        Bombeiro bombeiro = new Bombeiro();
-        bombeiro.setCpf("12345678");
-        bombeiro.setDataNascimento(LocalDate.of(1945,9,2));
-        bombeiro.setNomeCompleto("Fulano da Silva");
-        bombeiro.setNomeGuerra("Silva");
-        bombeiro.setDataNascimento(LocalDate.of(2000, Month.NOVEMBER,12));
-                
-        Transaction transacao = null;    
-       try{
-           transacao = sessao.beginTransaction();
-           
-           sessao.persist(bombeiro);
-           
-           transacao.commit();
-           System.out.println("bombeiro 'salvo' ");
-           sessao.close();
-       }catch(Exception e){
-           if (transacao != null) {
-               transacao.rollback();
-                
-           }
-           
-       }
+        Bombeiro bombeiro01 = new Bombeiro();
+        bombeiro01.setCpf("10955221919");
+        bombeiro01.setDataNascimento(LocalDate.of(1990, 2, 2));
+        bombeiro01.setNome("Fulano da Silva");
+        bombeiro01.setNomeGuerra("Silva");
+        bombeiro01.setDataNascimento(LocalDate.of(2000, Month.NOVEMBER, 12));
         
-        HibernateUtil.shutdown();   
+        Usuario usuario01 = new Usuario();
+        usuario01.setLogin("beltrano.silva");
+        usuario01.setSenha("12345");
+        
+        bombeiro01.setUsuario(usuario01);
+        //usuario01.setBombeiro(bombeiro01);
+        
+        Transaction transacao = null;
+        
+        try{
+            transacao = sessao.beginTransaction();
+            
+            sessao.persist(bombeiro01);
+            //sessao.persist(usuario01);
+            
+            transacao.commit();
+            System.out.println("Bombeiro 'salvo'");
+            sessao.close();
+
+        }catch(Exception e){
+            if(transacao != null){
+                transacao.rollback();
+            }
+        }
+        HibernateUtil.shutdown();
     }
 }
+
+
