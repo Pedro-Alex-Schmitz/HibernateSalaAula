@@ -7,7 +7,6 @@ package com.ifc.ibirama.mavenproject1;
 import com.ifc.ibirama.mavenproject1.entidades.Bombeiro;
 import com.ifc.ibirama.mavenproject1.entidades.Usuario;
 import ifc.ibirama.hibernate.util.HibernateUtil;
-import ifc.ibirama.hibernate.util.HibernateUtil;
 import java.time.LocalDate;
 import java.time.Month;
 import org.hibernate.Session;
@@ -26,7 +25,7 @@ public class GerenciarBombeiro {
         Bombeiro bombeiro01 = new Bombeiro();
         bombeiro01.setCpf("10955221919");
         bombeiro01.setDataNascimento(LocalDate.of(1990, 2, 2));
-        bombeiro01.setNome("Fulano da Silva");
+        bombeiro01.setNomeCompleto("Fulano da Silva");
         bombeiro01.setNomeGuerra("Silva");
         bombeiro01.setDataNascimento(LocalDate.of(2000, Month.NOVEMBER, 12));
         
@@ -34,7 +33,7 @@ public class GerenciarBombeiro {
         usuario01.setLogin("beltrano.silva");
         usuario01.setSenha("12345");
         
-        bombeiro01.setUsuario(usuario01);
+        //bombeiro01.setUsuario(usuario01);
         //usuario01.setBombeiro(bombeiro01);
         
         Transaction transacao = null;

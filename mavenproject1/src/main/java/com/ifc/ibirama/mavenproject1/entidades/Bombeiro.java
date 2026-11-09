@@ -43,7 +43,7 @@ public class Bombeiro {
     @OneToOne(mappedBy = "bombeiro")
     private Usuario usuario;
     
-    (mappedBy = "bombeiro",cascade = CascadeType.ALL)
+//    (mappedBy = "bombeiro",cascade = CascadeType.ALL)
 //    @OneToMany(mappedBy = "bombeiro")
 //    private Set<TelefoneContato> telefone = new HashSet<TelefoneContato>();
 //     @ManyToMany
